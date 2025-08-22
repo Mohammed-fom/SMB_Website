@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spectrum Building Maintenance</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-dark: #4A5B7E;
+            --primary-light: #6b7fa0;
+            --accent: #D4AF37;
+            --dark-text: #333333;
+            --light-text: #f8f8f8;
+            --gray-bg: #f5f5f5;
+            --section-padding: 80px 0;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            color: var(--dark-text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        /* Header & Navigation */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo-img {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary-light));
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 10px;
+            color: white;
+            font-size: 20px;
+        }
+        
+        .logo-text {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--primary-dark);
+        }
+        
+        .logo-text span {
+            color: var(--accent);
+            font-weight: 300;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav li {
+            margin-left: 30px;
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: var(--dark-text);
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+        
+        nav a:hover {
+            color: var(--primary-dark);
+        }
+        
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent);
+            transition: width 0.3s;
+        }
+        
+        nav a:hover::after {
+            width: 100%;
+        }
+        
+        .nav-toggle {
+            display: none;
+            font-size: 24px;
+            background: none;
+            border: none;
+            color: var(--primary-dark);
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1503387762-592deb58ef4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1500&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            color: white;
+            text-align: center;
+            margin-top: 80px;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: white;
+        }
+        
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--accent);
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background-color: #c19b2e;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Services Overview */
+        .services-overview {
+            padding: var(--section-padding);
+            background-color: white;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            font-size: 36px;
+            color: var(--primary-dark);
+            margin-bottom: 15px;
+        }
+        
+        .section-title p {
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .service-img {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .service-content {
+            padding: 20px;
+        }
+        
+        .service-content h3 {
+            color: var(--primary-dark);
+            margin-bottom: 10px;
+            font-size: 22px;
+        }
+        
+        /* Specializations */
+        .specializations {
+            padding: var(--section-padding);
+            background-color: var(--gray-bg);
+        }
+        
+        .spec-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .spec-card {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            text-align: center;
+        }
+        
+        .spec-icon {
+            font-size: 40px;
+            color: var(--accent);
+            margin-bottom: 20px;
+        }
+        
+        .spec-card h3 {
+            color: var(--primary-dark);
+            margin-bottom: 15px;
+        }
+        
+        /* CTA Section */
+        .cta {
+            padding: 80px 0;
+            background: linear-gradient(rgba(74, 91, 126, 0.9), rgba(74, 91, 126, 0.9)), url('https://images.unsplash.com/photo-1465433045946-ba6506ce5a59?ixlib=rb-4.0.3&auto=format&fit=crop&w=1500&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+        }
+        
+        .cta h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        
+        .cta p {
+            max-width: 700px;
+            margin: 0 auto 30px;
+            font-size: 18px;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--primary-dark);
+            color: white;
+            padding: 60px 0 30px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-section h3 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            color: var(--accent);
+        }
+        
+        .footer-section p, .footer-section li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-section a:hover {
+            color: var(--accent);
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .social-icons a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            transition: background-color 0.3s;
+        }
+        
+        .social-icons a:hover {
+            background-color: var(--accent);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Page Sections (Hidden by Default) */
+        .page-section {
+            display: none;
+            padding: 100px 0;
+        }
+        
+        .page-section.active {
+            display: block;
+        }
+        
+        /* Services Page */
+        .service-hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&auto=format&fit=crop&w=1500&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            color: white;
+            text-align: center;
+        }
+        
+        .service-detail {
+            margin-bottom: 80px;
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+        
+        .service-detail:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+        
+        .service-detail-img {
+            flex: 1;
+            height: 350px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .service-detail-content {
+            flex: 1;
+        }
+        
+        .service-detail-content h2 {
+            color: var(--primary-dark);
+            margin-bottom: 20px;
+            font-size: 32px;
+        }
+        
+        .service-detail-content p {
+            margin-bottom: 15px;
+            line-height: 1.8;
+        }
+        
+        /* Contact Page */
+        .contact-hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1577563908411-5077b6dc7624?ixlib=rb-4.0.3&auto=format&fit=crop&w=1500&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            color: white;
+            text-align: center;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+        
+        .contact-info {
+            margin-bottom: 30px;
+        }
+        
+        .contact-info-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+        
+        .contact-icon {
+            font-size: 24px;
+            color: var(--accent);
+            margin-right: 15px;
+            min-width: 30px;
+        }
+        
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 12px 15px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        
+        .contact-form textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .map {
+            height: 300px;
+            background-color: #eee;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 968px) {
+            .service-detail,
+            .service-detail:nth-child(even) {
+                flex-direction: column;
+            }
+            
+            .service-detail-img {
+                width: 100%;
+                margin-bottom: 30px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-toggle {
+                display: block;
+            }
+            
+            nav ul {
+                position: fixed;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background-color: white;
+                flex-direction: column;
+                align-items: center;
+                padding: 20px 0;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+                transform: translateY(-100%);
+                opacity: 0;
+                pointer-events: none;
+                transition: all 0.3s;
+            }
+            
+            nav ul.active {
+                transform: translateY(0);
+                opacity: 1;
+                pointer-events: all;
+            }
+            
+            nav li {
+                margin: 15px 0;
+            }
+            
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .hero p {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <div class="logo-img">
+                    <i class="fas fa-building"></i>
+                </div>
+                <div class="logo-text">SPECTRUM BUILDING<span> & MAINTENANCE</span></div>
+            </div>
+            <button class="nav-toggle" id="navToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav>
+                <ul id="navMenu">
+                    <li><a href="#home" class="nav-link active" data-page="home">Home</a></li>
+                    <li><a href="#services" class="nav-link" data-page="services">Services</a></li>
+                    <li><a href="#contact" class="nav-link" data-page="contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Home Page -->
+    <section id="home" class="page-section active">
+        <!-- Hero Section -->
+        <div class="hero">
+            <div class="hero-content">
+                <h1>Building Excellence, Crafting Dreams</h1>
+                <p>With over 15 years of experience, Spectrum Building Maintenance delivers exceptional construction services for commercial and residential projects.</p>
+                <a href="#contact" class="btn nav-link" data-page="contact">Get in Touch</a>
+            </div>
+        </div>
+
+        <!-- Services Overview -->
+        <div class="services-overview">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Our Services</h2>
+                    <p>We provide comprehensive construction and maintenance solutions tailored to meet your specific needs.</p>
+                </div>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-img" style="background-image: url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80');"></div>
+                        <div class="service-content">
+                            <h3>Commercial Construction</h3>
+                            <p>From office buildings to retail spaces, we deliver commercial construction projects on time and within budget.</p>
+                        </div>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-img" style="background-image: url('https://images.unsplash.com/photo-1574362848149-11496d93a7c7?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80');"></div>
+                        <div class="service-content">
+                            <h3>Residential Construction</h3>
+                            <p>We build dream homes with attention to detail, quality materials, and exceptional craftsmanship.</p>
+                        </div>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-img" style="background-image: url('https://renovaint.com/wp-content/uploads/2025/05/Electrical-Plumbing-2.jpg');"></div>
+                        <div class="service-content">
+                            <h3>Plumbing & Electrical</h3>
+                            <p>Our certified technicians provide reliable plumbing and electrical services for all types of properties.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Specializations -->
+        <div class="specializations">
+            <div class="container">
+                <div class="section-title">
+                    <h2>What We Specialize In</h2>
+                    <p>Our expertise covers a wide range of construction and maintenance services.</p>
+                </div>
+                <div class="spec-grid">
+                    <div class="spec-card">
+                        <div class="spec-icon">
+                            <i class="fas fa-city"></i>
+                        </div>
+                        <h3>Commercial Construction</h3>
+                        <p>We build functional and aesthetically pleasing commercial spaces that meet business requirements.</p>
+                    </div>
+                    <div class="spec-card">
+                        <div class="spec-icon">
+                            <i class="fas fa-home"></i>
+                        </div>
+                        <h3>Residential Construction</h3>
+                        <p>From custom homes to renovations, we bring your vision to life with quality craftsmanship.</p>
+                    </div>
+                    <div class="spec-card">
+                        <div class="spec-icon">
+                            <i class="fas fa-faucet"></i>
+                        </div>
+                        <h3>Plumbing Services</h3>
+                        <p>Expert plumbing solutions for both new installations and repairs, ensuring efficiency and reliability.</p>
+                    </div>
+                    <div class="spec-card">
+                        <div class="spec-icon">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <h3>Electrical Works</h3>
+                        <p>Safe and code-compliant electrical installations, repairs, and maintenance services.</p>
+                    </div>
+                    <div class="spec-card">
+                        <div class="spec-icon">
+                            <i class="fas fa-tools"></i>
+                        </div>
+                        <h3>Roofing</h3>
+                        <p>Durable and weather-resistant roofing solutions using high-quality materials and expert installation.</p>
+                    </div>
+                    <div class="spec-card">
+                        <div class="spec-icon">
+                            <i class="fas fa-hammer"></i>
+                        </div>
+                        <h3>Steel Works</h3>
+                        <p>Structural steel fabrication and installation for commercial and industrial projects.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Call to Action -->
+        <div class="cta">
+            <div class="container">
+                <h2>Ready to Start Your Project?</h2>
+                <p>Contact us today for a free consultation and estimate. Let's bring your vision to life together.</p>
+                <a href="#contact" class="btn nav-link" data-page="contact">Contact Us Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Page -->
+    <section id="services" class="page-section">
+        <div class="service-hero">
+            <div class="container">
+                <h1>Our Services</h1>
+                <p>Comprehensive construction solutions tailored to your needs</p>
+            </div>
+        </div>
+
+        <div class="container" style="padding: 80px 0;">
+            <!-- Commercial Construction -->
+            <div class="service-detail">
+                <div class="service-detail-img" style="background-image: url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80');"></div>
+                <div class="service-detail-content">
+                    <h2>Commercial Construction</h2>
+                    <p>At Spectrum Building Maintenance, we excel in commercial construction projects of all scales. Our team of experienced professionals works diligently to deliver spaces that are not only functional but also aesthetically pleasing and built to last. We understand the unique requirements of commercial projects, including timelines, budgets, and compliance with regulations.</p>
+                    <p>From initial planning to final execution, we maintain clear communication with our clients to ensure their vision is realized. Our commercial construction services include office buildings, retail spaces, warehouses, and more.</p>
+                    <a href="#contact" class="btn nav-link" data-page="contact">Request a Quote</a>
+                </div>
+            </div>
+
+            <!-- Residential Construction -->
+            <div class="service-detail">
+                <div class="service-detail-img" style="background-image: url('https://images.unsplash.com/photo-1574362848149-11496d93a7c7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80');"></div>
+                <div class="service-detail-content">
+                    <h2>Residential Construction</h2>
+                    <p>Your home is your sanctuary, and we treat it with the care and attention it deserves. Our residential construction services cover everything from custom home building to renovations and extensions. We use quality materials and employ skilled craftsmen to ensure every detail meets our high standards.</p>
+                    <p>We work closely with homeowners to understand their needs, preferences, and lifestyle, creating spaces that are both beautiful and functional. Our commitment to excellence has made us a trusted name in residential construction.</p>
+                    <a href="#contact" class="btn nav-link" data-page="contact">Discuss Your Project</a>
+                </div>
+            </div>
+
+            <!-- Plumbing & Electrical -->
+            <div class="service-detail">
+                <div class="service-detail-img" style="background-image: url('https://sjzconstruction.com/wp-content/uploads/2023/01/mechanical-elactrical-and-plumbing-image.jpg');"></div>
+                <div class="service-detail-content">
+                    <h2>Plumbing & Electrical</h2>
+                    <p>Our certified plumbers and electricians provide reliable and efficient services for both residential and commercial properties. We handle everything from installations and repairs to maintenance and upgrades.</p>
+                    <p>With a focus on safety, code compliance, and quality workmanship, we ensure that your plumbing and electrical systems function optimally. Our team stays updated with the latest technologies and techniques to deliver the best solutions for our clients.</p>
+                    <a href="#contact" class="btn nav-link" data-page="contact">Schedule Service</a>
+                </div>
+            </div>
+
+            <!-- Roofing -->
+            <div class="service-detail">
+                <div class="service-detail-img" style="background-image: url('https://estimatorflorida.com/wp-content/uploads/2022/08/how-to-estimate-roofing-work.jpg');"></div>
+                <div class="service-detail-content">
+                    <h2>Roofing</h2>
+                    <p>A well-constructed roof is essential for protecting your property. We offer comprehensive roofing services using durable, weather-resistant materials. Whether you need a new roof installation, repairs, or maintenance, our skilled roofers deliver quality workmanship that stands the test of time.</p>
+                    <p>We work with various roofing materials, including shingles, metal, tile, and flat roofing systems, providing solutions that suit your aesthetic preferences and budget.</p>
+                    <a href="#contact" class="btn nav-link" data-page="contact">Get Roofing Estimate</a>
+                </div>
+            </div>
+
+            <!-- Steel Works -->
+            <div class="service-detail">
+                <div class="service-detail-img" style="background-image: url('https://bigfootpipe.com/wp-content/uploads/2023/10/welder-is-welding-steel-steel-roof-truss-working-height-equipment-fall-arrestor-device-worker-with-hooks-safety-body-harness-worker-construction-site.jpg');"></div>
+                <div class="service-detail-content">
+                    <h2>Steel Works</h2>
+                    <p>Our steel fabrication and installation services cater to commercial and industrial projects requiring structural integrity and durability. We work with precision to fabricate steel components that meet exact specifications and engineering requirements.</p>
+                    <p>From structural frames to custom steel elements, our team has the expertise to handle projects of varying complexity, ensuring strength, safety, and longevity.</p>
+                    <a href="#contact" class="btn nav-link" data-page="contact">Inquire About Steel Works</a>
+                </div>
+            </div>
+
+            <!-- Paving -->
+            <div class="service-detail">
+                <div class="service-detail-img" style="background-image: url('https://buttroselandscapegarden.com.au/wp-content/uploads/2023/10/Person-paving-with-yellow-gloves-and-tools-scaled.jpeg');"></div>
+                <div class="service-detail-content">
+                    <h2>Paving</h2>
+                    <p>We provide professional paving services for driveways, walkways, parking lots, and other outdoor surfaces. Using high-quality materials and proven techniques, we create durable and visually appealing paved areas that enhance your property's functionality and curb appeal.</p>
+                    <p>Our paving solutions are designed to withstand heavy use and varying weather conditions, ensuring long-lasting performance and minimal maintenance. We offer both asphalt and concrete paving options to meet your specific needs and budget.</p>
+                    <a href="#contact" class="btn nav-link" data-page="contact">Get Paving Quote</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Page -->
+    <section id="contact" class="page-section">
+        <div class="contact-hero">
+            <div class="container">
+                <h1>Contact Us</h1>
+                <p>Get in touch with us to discuss your project needs</p>
+            </div>
+        </div>
+
+        <div class="container" style="padding: 80px 0;">
+            <div class="contact-grid">
+                <div>
+                    <h2>Get In Touch</h2>
+                    <p>Have a project in mind? Fill out the form and our team will get back to you shortly.</p>
+                    
+                    <div class="contact-info">
+                        <div class="contact-info-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <h3>Address</h3>
+                                <p>22 Richter Street, Trichardt, Mpumalanga, South Africa</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-info-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div>
+                                <h3>Phone</h3>
+                                <p>+27 79 610 7711</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-info-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h3>Email</h3>
+                                <p>spectrum.ryan@gmail.com</p>
+                            </div>
+                        </div>
+                    </div> 
+                </div>
+                
+                <div>
+    <form class="contact-form" action="https://formspree.io/f/mrblnqgq" method="POST">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <input type="tel" name="phone" placeholder="Your Phone">
+        <input type="text" name="subject" placeholder="Subject">
+        <textarea name="message" placeholder="Your Message" required></textarea>
+        <button type="submit" class="btn">Send Message</button>
+    </form>
+</div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>About Us</h3>
+                    <p>Spectrum Building Maintenance is a full-service construction company specializing in commercial and residential projects, plumbing, electrical, and more.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home" class="nav-link" data-page="home">Home</a></li>
+                        <li><a href="#services" class="nav-link" data-page="services">Services</a></li>
+                        <li><a href="#contact" class="nav-link" data-page="contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="#">Commercial Construction</a></li>
+                        <li><a href="#">Residential Construction</a></li>
+                        <li><a href="#">Plumbing</a></li>
+                        <li><a href="#">Electrical</a></li>
+                        <li><a href="#">Roofing</a></li>
+                        <li><a href="#">Steel Works</a></li>
+                        <li><a href="#">Paving</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> 22 Richter Street, Trichardt, Mpumalanga, South Africa</p>
+                    <p><i class="fas fa-phone"></i> +27 79 610 7711</p>
+                    <p><i class="fas fa-envelope"></i> spectrum.ryan@gmail.com</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 Spectrum Building Maintenance. All Rights Reserved. Brought to you by Malek Enterprise</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Navigation functionality
+        const navToggle = document.getElementById('navToggle');
+        const navMenu = document.getElementById('navMenu');
+        const navLinks = document.querySelectorAll('.nav-link');
+        const pageSections = document.querySelectorAll('.page-section');
+        
+        // Mobile menu toggle
+        navToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+        
+        // Page navigation
+        navLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                
+                // Remove active class from all links and sections
+                navLinks.forEach(l => l.classList.remove('active'));
+                pageSections.forEach(section => section.classList.remove('active'));
+                
+                // Add active class to clicked link
+                link.classList.add('active');
+                
+                // Show the corresponding page section
+                const pageId = link.getAttribute('data-page');
+                document.getElementById(pageId).classList.add('active');
+                
+                // Close mobile menu if open
+                navMenu.classList.remove('active');
+                
+                // Scroll to top
+                window.scrollTo(0, 0);
+            });
+        });
+        
+        // Form submission
+        // Form submission with Formspree
+const contactForm = document.querySelector('.contact-form');
+if (contactForm) {
+    contactForm.addEventListener("submit", async function (e) {
+        e.preventDefault();
+
+        const formData = new FormData(contactForm);
+        try {
+            const response = await fetch(contactForm.action, {
+                method: contactForm.method,
+                body: formData,
+                headers: { 'Accept': 'application/json' }
+            });
+
+            if (response.ok) {
+                alert("✅ Thank you for your message! We will get back to you soon.");
+                contactForm.reset();
+            } else {
+                alert("⚠️ Oops! Something went wrong. Please try again.");
+            }
+        } catch (error) {
+            alert("❌ Network error. Please check your connection and try again.");
+        }
+    });
+}
+
+    </script>
+</body>
+</html>
