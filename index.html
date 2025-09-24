@@ -3,30 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Spectrum Building Maintenance</title>
+    <title>Spectrum Building Maintenance | Professional Construction Services</title>
+    <meta name="description" content="Spectrum Building Maintenance offers professional construction, plumbing, electrical, and maintenance services for commercial and residential projects in South Africa.">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-dark: #4A5B7E;
+            --primary-dark: #2c3e50;
+            --primary-medium: #4A5B7E;
             --primary-light: #6b7fa0;
             --accent: #D4AF37;
+            --accent-dark: #b8941f;
             --dark-text: #333333;
             --light-text: #f8f8f8;
-            --gray-bg: #f5f5f5;
-            --section-padding: 80px 0;
+            --gray-bg: #f5f7fa;
+            --section-padding: 100px 0;
+            --border-radius: 8px;
+            --box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s ease;
         }
         
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
         
         body {
             color: var(--dark-text);
-            line-height: 1.6;
+            line-height: 1.7;
+            font-family: 'Open Sans', sans-serif;
             overflow-x: hidden;
+            font-size: 16px;
+        }
+        
+        h1, h2, h3, h4, h5 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: 1rem;
         }
         
         .container {
@@ -35,14 +52,86 @@
             margin: 0 auto;
         }
         
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            background-color: var(--accent);
+            color: white;
+            text-decoration: none;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+        }
+        
+        .btn:hover {
+            background-color: var(--accent-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(212, 175, 55, 0.4);
+        }
+        
+        .btn-secondary {
+            background-color: transparent;
+            border: 2px solid var(--accent);
+            color: var(--accent);
+            box-shadow: none;
+        }
+        
+        .btn-secondary:hover {
+            background-color: var(--accent);
+            color: white;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary-dark);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--accent);
+            border-radius: 2px;
+        }
+        
+        .section-title p {
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+        }
+        
         /* Header & Navigation */
         header {
             background-color: white;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
+            transition: var(--transition);
+        }
+        
+        header.scrolled {
+            padding: 5px 0;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
         }
         
         .header-container {
@@ -50,35 +139,46 @@
             justify-content: space-between;
             align-items: center;
             padding: 15px 0;
+            transition: var(--transition);
         }
         
         .logo {
             display: flex;
             align-items: center;
+            text-decoration: none;
         }
         
         .logo-img {
-            width: 50px;
-            height: 50px;
-            background: linear-gradient(135deg, var(--primary-dark), var(--primary-light));
-            border-radius: 8px;
+            width: 60px;
+            height: 60px;
+            margin-right: 12px;
+            border-radius: var(--border-radius);
+            overflow: hidden;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-right: 10px;
-            color: white;
-            font-size: 20px;
+            background: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .logo-img img {
+            max-width: 100%;
+            height: auto;
+            display: block;
         }
         
         .logo-text {
-            font-size: 22px;
+            font-size: 1.5rem;
             font-weight: 700;
             color: var(--primary-dark);
+            line-height: 1.2;
         }
         
         .logo-text span {
             color: var(--accent);
-            font-weight: 300;
+            font-weight: 600;
+            display: block;
+            font-size: 1rem;
         }
         
         nav ul {
@@ -93,13 +193,14 @@
         nav a {
             text-decoration: none;
             color: var(--dark-text);
-            font-weight: 500;
-            transition: color 0.3s;
+            font-weight: 600;
+            transition: var(--transition);
             position: relative;
+            font-size: 1rem;
         }
         
         nav a:hover {
-            color: var(--primary-dark);
+            color: var(--accent);
         }
         
         nav a::after {
@@ -110,92 +211,82 @@
             width: 0;
             height: 2px;
             background-color: var(--accent);
-            transition: width 0.3s;
+            transition: var(--transition);
         }
         
-        nav a:hover::after {
+        nav a:hover::after,
+        nav a.active::after {
             width: 100%;
+        }
+        
+        nav a.active {
+            color: var(--accent);
         }
         
         .nav-toggle {
             display: none;
-            font-size: 24px;
+            font-size: 1.5rem;
             background: none;
             border: none;
             color: var(--primary-dark);
             cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .nav-toggle:hover {
+            color: var(--accent);
         }
         
         /* Hero Section */
         .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1503387762-592deb58ef4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1500&q=80');
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                        url('https://images.unsplash.com/photo-1503387762-592deb58ef4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1500&q=80');
             background-size: cover;
             background-position: center;
-            height: 100vh;
+            background-attachment: fixed;
+            min-height: 100vh;
             display: flex;
             align-items: center;
-            color: white;
+            justify-content: center;
             text-align: center;
-            margin-top: 80px;
+            color: white;
+            padding: 100px 0 80px;
         }
         
         .hero-content {
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
             padding: 0 20px;
         }
         
         .hero h1 {
-            font-size: 48px;
-            margin-bottom: 20px;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            margin-bottom: 1.5rem;
+            font-weight: 700;
             color: white;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
         }
         
         .hero p {
-            font-size: 20px;
-            margin-bottom: 30px;
+            font-size: clamp(1rem, 2.5vw, 1.4rem);
+            margin-bottom: 2.5rem;
+            line-height: 1.6;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
         }
         
-        .btn {
-            display: inline-block;
-            padding: 12px 30px;
-            background-color: var(--accent);
-            color: white;
-            text-decoration: none;
-            border-radius: 4px;
-            font-weight: 600;
-            transition: all 0.3s;
-            border: none;
-            cursor: pointer;
-        }
-        
-        .btn:hover {
-            background-color: #c19b2e;
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
         }
         
         /* Services Overview */
         .services-overview {
             padding: var(--section-padding);
             background-color: white;
-        }
-        
-        .section-title {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-        
-        .section-title h2 {
-            font-size: 36px;
-            color: var(--primary-dark);
-            margin-bottom: 15px;
-        }
-        
-        .section-title p {
-            color: #666;
-            max-width: 700px;
-            margin: 0 auto;
         }
         
         .services-grid {
@@ -206,31 +297,69 @@
         
         .service-card {
             background-color: white;
-            border-radius: 8px;
+            border-radius: var(--border-radius);
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
         }
         
         .service-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
         }
         
         .service-img {
-            height: 200px;
+            height: 220px;
             background-size: cover;
             background-position: center;
+            transition: var(--transition);
+        }
+        
+        .service-card:hover .service-img {
+            transform: scale(1.05);
         }
         
         .service-content {
-            padding: 20px;
+            padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
         }
         
         .service-content h3 {
             color: var(--primary-dark);
-            margin-bottom: 10px;
-            font-size: 22px;
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+        
+        .service-content p {
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+        
+        .service-link {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            transition: var(--transition);
+        }
+        
+        .service-link i {
+            margin-left: 8px;
+            transition: var(--transition);
+        }
+        
+        .service-link:hover {
+            color: var(--accent-dark);
+        }
+        
+        .service-link:hover i {
+            transform: translateX(5px);
         }
         
         /* Specializations */
@@ -241,33 +370,81 @@
         
         .spec-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 30px;
         }
         
         .spec-card {
             background-color: white;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            padding: 40px 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
             text-align: center;
+            transition: var(--transition);
+            border-top: 4px solid transparent;
+        }
+        
+        .spec-card:hover {
+            transform: translateY(-5px);
+            border-top-color: var(--accent);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
         }
         
         .spec-icon {
-            font-size: 40px;
+            font-size: 50px;
             color: var(--accent);
-            margin-bottom: 20px;
+            margin-bottom: 25px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         
         .spec-card h3 {
             color: var(--primary-dark);
             margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        
+        /* Stats Section */
+        .stats {
+            padding: 80px 0;
+            background: linear-gradient(rgba(44, 62, 80, 0.9), rgba(44, 62, 80, 0.9)), 
+                        url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1500&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+        }
+        
+        .stat-item {
+            padding: 30px 20px;
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--accent);
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .stat-text {
+            font-size: 1.1rem;
+            font-weight: 600;
         }
         
         /* CTA Section */
         .cta {
-            padding: 80px 0;
-            background: linear-gradient(rgba(74, 91, 126, 0.9), rgba(74, 91, 126, 0.9)), url('https://images.unsplash.com/photo-1465433045946-ba6506ce5a59?ixlib=rb-4.0.3&auto=format&fit=crop&w=1500&q=80');
+            padding: 100px 0;
+            background: linear-gradient(rgba(74, 91, 126, 0.9), rgba(74, 91, 126, 0.9)), 
+                        url('https://images.unsplash.com/photo-1465433045946-ba6506ce5a59?ixlib=rb-4.0.3&auto=format&fit=crop&w=1500&q=80');
             background-size: cover;
             background-position: center;
             color: white;
@@ -275,38 +452,50 @@
         }
         
         .cta h2 {
-            font-size: 36px;
+            font-size: 2.5rem;
             margin-bottom: 20px;
         }
         
         .cta p {
             max-width: 700px;
-            margin: 0 auto 30px;
-            font-size: 18px;
+            margin: 0 auto 40px;
+            font-size: 1.2rem;
         }
         
         /* Footer */
         footer {
             background-color: var(--primary-dark);
             color: white;
-            padding: 60px 0 30px;
+            padding: 80px 0 30px;
         }
         
         .footer-content {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-bottom: 40px;
+            gap: 40px;
+            margin-bottom: 50px;
         }
         
         .footer-section h3 {
-            font-size: 20px;
-            margin-bottom: 20px;
+            font-size: 1.3rem;
+            margin-bottom: 25px;
             color: var(--accent);
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-section h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--accent);
         }
         
         .footer-section p, .footer-section li {
-            margin-bottom: 10px;
+            margin-bottom: 12px;
         }
         
         .footer-section ul {
@@ -316,53 +505,66 @@
         .footer-section a {
             color: #ddd;
             text-decoration: none;
-            transition: color 0.3s;
+            transition: var(--transition);
         }
         
         .footer-section a:hover {
             color: var(--accent);
+            padding-left: 5px;
         }
         
         .social-icons {
             display: flex;
             gap: 15px;
-            margin-top: 15px;
+            margin-top: 20px;
         }
         
         .social-icons a {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
             width: 40px;
             height: 40px;
             background-color: rgba(255, 255, 255, 0.1);
             border-radius: 50%;
             text-align: center;
             line-height: 40px;
-            transition: background-color 0.3s;
+            transition: var(--transition);
         }
         
         .social-icons a:hover {
             background-color: var(--accent);
+            transform: translateY(-3px);
         }
         
         .footer-bottom {
             text-align: center;
             padding-top: 30px;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: #aaa;
         }
         
         /* Page Sections (Hidden by Default) */
         .page-section {
             display: none;
-            padding: 100px 0;
+            padding-top: 100px;
         }
         
         .page-section.active {
             display: block;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
         
         /* Services Page */
         .service-hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&auto=format&fit=crop&w=1500&q=80');
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                        url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&auto=format&fit=crop&w=1500&q=80');
             background-size: cover;
             background-position: center;
             height: 400px;
@@ -370,13 +572,23 @@
             align-items: center;
             color: white;
             text-align: center;
+            margin-bottom: 80px;
+        }
+        
+        .service-hero .container {
+            width: 100%;
+        }
+        
+        .service-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 15px;
         }
         
         .service-detail {
-            margin-bottom: 80px;
+            margin-bottom: 100px;
             display: flex;
             align-items: center;
-            gap: 40px;
+            gap: 50px;
         }
         
         .service-detail:nth-child(even) {
@@ -385,11 +597,16 @@
         
         .service-detail-img {
             flex: 1;
-            height: 350px;
+            height: 400px;
             background-size: cover;
             background-position: center;
-            border-radius: 8px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+        }
+        
+        .service-detail:hover .service-detail-img {
+            transform: scale(1.02);
         }
         
         .service-detail-content {
@@ -398,18 +615,32 @@
         
         .service-detail-content h2 {
             color: var(--primary-dark);
-            margin-bottom: 20px;
-            font-size: 32px;
+            margin-bottom: 25px;
+            font-size: 2.2rem;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .service-detail-content h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background-color: var(--accent);
+            border-radius: 2px;
         }
         
         .service-detail-content p {
-            margin-bottom: 15px;
+            margin-bottom: 20px;
             line-height: 1.8;
         }
         
         /* Contact Page */
         .contact-hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1577563908411-5077b6dc7624?ixlib=rb-4.0.3&auto=format&fit=crop&w=1500&q=80');
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                        url('https://images.unsplash.com/photo-1577563908411-5077b6dc7624?ixlib=rb-4.0.3&auto=format&fit=crop&w=1500&q=80');
             background-size: cover;
             background-position: center;
             height: 400px;
@@ -417,39 +648,65 @@
             align-items: center;
             color: white;
             text-align: center;
+            margin-bottom: 80px;
+        }
+        
+        .contact-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 15px;
         }
         
         .contact-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
+            gap: 50px;
+            margin-bottom: 80px;
         }
         
         .contact-info {
-            margin-bottom: 30px;
+            margin-bottom: 40px;
         }
         
         .contact-info-item {
             display: flex;
             align-items: flex-start;
-            margin-bottom: 20px;
+            margin-bottom: 30px;
         }
         
         .contact-icon {
             font-size: 24px;
             color: var(--accent);
-            margin-right: 15px;
+            margin-right: 20px;
             min-width: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .contact-info-item h3 {
+            margin-bottom: 5px;
+            color: var(--primary-dark);
         }
         
         .contact-form input,
-        .contact-form textarea {
+        .contact-form textarea,
+        .contact-form select {
             width: 100%;
-            padding: 12px 15px;
+            padding: 15px;
             margin-bottom: 20px;
             border: 1px solid #ddd;
-            border-radius: 4px;
+            border-radius: var(--border-radius);
             font-size: 16px;
+            font-family: 'Open Sans', sans-serif;
+            transition: var(--transition);
+        }
+        
+        .contact-form input:focus,
+        .contact-form textarea:focus,
+        .contact-form select:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.2);
         }
         
         .contact-form textarea {
@@ -457,15 +714,130 @@
             resize: vertical;
         }
         
+        .map-container {
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            margin-top: 80px;
+        }
+        
         .map {
-            height: 300px;
+            height: 400px;
+            width: 100%;
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            padding: var(--section-padding);
+            background-color: var(--gray-bg);
+        }
+        
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .testimonial-card {
+            background-color: white;
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            position: relative;
+        }
+        
+        .testimonial-card::before {
+            content: '"';
+            font-size: 80px;
+            color: var(--accent);
+            opacity: 0.2;
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            font-family: Georgia, serif;
+        }
+        
+        .testimonial-text {
+            margin-bottom: 20px;
+            font-style: italic;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+        
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
             background-color: #eee;
-            border-radius: 8px;
+            margin-right: 15px;
             overflow: hidden;
         }
         
+        .author-info h4 {
+            margin-bottom: 5px;
+            font-size: 1.1rem;
+        }
+        
+        .author-info p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background-color: var(--accent);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            text-decoration: none;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            z-index: 999;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            background-color: var(--accent-dark);
+            transform: translateY(-3px);
+        }
+        
+        /* Loading Animation */
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: white;
+            animation: spin 1s ease-in-out infinite;
+            margin-right: 10px;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
         /* Responsive Styles */
-        @media (max-width: 968px) {
+        @media (max-width: 1100px) {
             .service-detail,
             .service-detail:nth-child(even) {
                 flex-direction: column;
@@ -473,29 +845,34 @@
             
             .service-detail-img {
                 width: 100%;
-                margin-bottom: 30px;
+                margin-bottom: 40px;
             }
         }
         
         @media (max-width: 768px) {
+            :root {
+                --section-padding: 80px 0;
+            }
+            
             .nav-toggle {
                 display: block;
             }
             
             nav ul {
                 position: fixed;
-                top: 80px;
+                top: 90px;
                 left: 0;
                 width: 100%;
                 background-color: white;
                 flex-direction: column;
                 align-items: center;
                 padding: 20px 0;
-                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
                 transform: translateY(-100%);
                 opacity: 0;
                 pointer-events: none;
-                transition: all 0.3s;
+                transition: var(--transition);
+                z-index: 999;
             }
             
             nav ul.active {
@@ -508,26 +885,81 @@
                 margin: 15px 0;
             }
             
-            .hero h1 {
-                font-size: 36px;
+            .hero {
+                padding: 120px 0 60px;
+                background-attachment: scroll;
             }
             
-            .hero p {
-                font-size: 18px;
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .hero-buttons .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .service-hero h1,
+            .contact-hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .footer-content {
+                gap: 30px;
+            }
+            
+            .back-to-top {
+                bottom: 20px;
+                right: 20px;
+                width: 45px;
+                height: 45px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .logo-text {
+                font-size: 1.2rem;
+            }
+            
+            .logo-text span {
+                font-size: 0.9rem;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+            
+            .service-detail-content h2 {
+                font-size: 1.8rem;
             }
         }
     </style>
 </head>
 <body>
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top" id="backToTop">
+        <i class="fas fa-chevron-up"></i>
+    </a>
+
     <!-- Header & Navigation -->
-    <header>
+    <header id="mainHeader">
         <div class="container header-container">
-            <div class="logo">
+            <a href="#home" class="logo nav-link" data-page="home">
                 <div class="logo-img">
-                    <i class="fas fa-building"></i>
+                    <img src="https://github.com/Mohammed-fom/SMB_Website/blob/main/SBM.png?raw=true" 
+                         alt="Spectrum Building & Maintenance Logo">
                 </div>
                 <div class="logo-text">SPECTRUM BUILDING<span> & MAINTENANCE</span></div>
-            </div>
+            </a>
             <button class="nav-toggle" id="navToggle">
                 <i class="fas fa-bars"></i>
             </button>
@@ -535,6 +967,7 @@
                 <ul id="navMenu">
                     <li><a href="#home" class="nav-link active" data-page="home">Home</a></li>
                     <li><a href="#services" class="nav-link" data-page="services">Services</a></li>
+                    <li><a href="#testimonials" class="nav-link" data-page="testimonials">Testimonials</a></li>
                     <li><a href="#contact" class="nav-link" data-page="contact">Contact</a></li>
                 </ul>
             </nav>
@@ -547,8 +980,11 @@
         <div class="hero">
             <div class="hero-content">
                 <h1>Building Excellence, Crafting Dreams</h1>
-                <p>With over 15 years of experience, Spectrum Building Maintenance delivers exceptional construction services for commercial and residential projects.</p>
-                <a href="#contact" class="btn nav-link" data-page="contact">Get in Touch</a>
+                <p>With over 15 years of experience, Spectrum Building Maintenance delivers exceptional construction services for commercial and residential projects across South Africa.</p>
+                <div class="hero-buttons">
+                    <a href="#services" class="btn nav-link" data-page="services">Our Services</a>
+                    <a href="#contact" class="btn btn-secondary nav-link" data-page="contact">Get Free Quote</a>
+                </div>
             </div>
         </div>
 
@@ -557,28 +993,31 @@
             <div class="container">
                 <div class="section-title">
                     <h2>Our Services</h2>
-                    <p>We provide comprehensive construction and maintenance solutions tailored to meet your specific needs.</p>
+                    <p>We provide comprehensive construction and maintenance solutions tailored to meet your specific needs and exceed your expectations.</p>
                 </div>
                 <div class="services-grid">
                     <div class="service-card">
-                        <div class="service-img" style="background-image: url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80');"></div>
+                        <div class="service-img" style="background-image: url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');"></div>
                         <div class="service-content">
                             <h3>Commercial Construction</h3>
-                            <p>From office buildings to retail spaces, we deliver commercial construction projects on time and within budget.</p>
+                            <p>From office buildings to retail spaces, we deliver commercial construction projects on time, within budget, and to the highest quality standards.</p>
+                            <a href="#services" class="service-link nav-link" data-page="services">Learn More <i class="fas fa-arrow-right"></i></a>
                         </div>
                     </div>
                     <div class="service-card">
-                        <div class="service-img" style="background-image: url('https://images.unsplash.com/photo-1574362848149-11496d93a7c7?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80');"></div>
+                        <div class="service-img" style="background-image: url('https://images.unsplash.com/photo-1574362848149-11496d93a7c7?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');"></div>
                         <div class="service-content">
                             <h3>Residential Construction</h3>
-                            <p>We build dream homes with attention to detail, quality materials, and exceptional craftsmanship.</p>
+                            <p>We build dream homes with attention to detail, quality materials, and exceptional craftsmanship that stands the test of time.</p>
+                            <a href="#services" class="service-link nav-link" data-page="services">Learn More <i class="fas fa-arrow-right"></i></a>
                         </div>
                     </div>
                     <div class="service-card">
                         <div class="service-img" style="background-image: url('https://renovaint.com/wp-content/uploads/2025/05/Electrical-Plumbing-2.jpg');"></div>
                         <div class="service-content">
                             <h3>Plumbing & Electrical</h3>
-                            <p>Our certified technicians provide reliable plumbing and electrical services for all types of properties.</p>
+                            <p>Our certified technicians provide reliable plumbing and electrical services for all types of properties, ensuring safety and efficiency.</p>
+                            <a href="#services" class="service-link nav-link" data-page="services">Learn More <i class="fas fa-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>
@@ -590,7 +1029,7 @@
             <div class="container">
                 <div class="section-title">
                     <h2>What We Specialize In</h2>
-                    <p>Our expertise covers a wide range of construction and maintenance services.</p>
+                    <p>Our expertise covers a wide range of construction and maintenance services with a commitment to quality and customer satisfaction.</p>
                 </div>
                 <div class="spec-grid">
                     <div class="spec-card">
@@ -598,42 +1037,66 @@
                             <i class="fas fa-city"></i>
                         </div>
                         <h3>Commercial Construction</h3>
-                        <p>We build functional and aesthetically pleasing commercial spaces that meet business requirements.</p>
+                        <p>We build functional and aesthetically pleasing commercial spaces that meet business requirements and exceed expectations.</p>
                     </div>
                     <div class="spec-card">
                         <div class="spec-icon">
                             <i class="fas fa-home"></i>
                         </div>
                         <h3>Residential Construction</h3>
-                        <p>From custom homes to renovations, we bring your vision to life with quality craftsmanship.</p>
+                        <p>From custom homes to renovations, we bring your vision to life with quality craftsmanship and attention to detail.</p>
                     </div>
                     <div class="spec-card">
                         <div class="spec-icon">
                             <i class="fas fa-faucet"></i>
                         </div>
                         <h3>Plumbing Services</h3>
-                        <p>Expert plumbing solutions for both new installations and repairs, ensuring efficiency and reliability.</p>
+                        <p>Expert plumbing solutions for both new installations and repairs, ensuring efficiency, reliability, and code compliance.</p>
                     </div>
                     <div class="spec-card">
                         <div class="spec-icon">
                             <i class="fas fa-bolt"></i>
                         </div>
                         <h3>Electrical Works</h3>
-                        <p>Safe and code-compliant electrical installations, repairs, and maintenance services.</p>
+                        <p>Safe and code-compliant electrical installations, repairs, and maintenance services for residential and commercial properties.</p>
                     </div>
                     <div class="spec-card">
                         <div class="spec-icon">
                             <i class="fas fa-tools"></i>
                         </div>
                         <h3>Roofing</h3>
-                        <p>Durable and weather-resistant roofing solutions using high-quality materials and expert installation.</p>
+                        <p>Durable and weather-resistant roofing solutions using high-quality materials and expert installation techniques.</p>
                     </div>
                     <div class="spec-card">
                         <div class="spec-icon">
                             <i class="fas fa-hammer"></i>
                         </div>
                         <h3>Steel Works</h3>
-                        <p>Structural steel fabrication and installation for commercial and industrial projects.</p>
+                        <p>Structural steel fabrication and installation for commercial and industrial projects with precision and durability.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Stats Section -->
+        <div class="stats">
+            <div class="container">
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div class="stat-number" data-count="15">0</div>
+                        <div class="stat-text">Years Experience</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" data-count="250">0</div>
+                        <div class="stat-text">Projects Completed</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" data-count="50">0</div>
+                        <div class="stat-text">Happy Clients</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" data-count="12">0</div>
+                        <div class="stat-text">Expert Team Members</div>
                     </div>
                 </div>
             </div>
@@ -643,8 +1106,8 @@
         <div class="cta">
             <div class="container">
                 <h2>Ready to Start Your Project?</h2>
-                <p>Contact us today for a free consultation and estimate. Let's bring your vision to life together.</p>
-                <a href="#contact" class="btn nav-link" data-page="contact">Contact Us Now</a>
+                <p>Contact us today for a free consultation and estimate. Let's bring your vision to life together with our expertise and dedication.</p>
+                <a href="#contact" class="btn nav-link" data-page="contact">Get Your Free Quote</a>
             </div>
         </div>
     </section>
@@ -654,18 +1117,18 @@
         <div class="service-hero">
             <div class="container">
                 <h1>Our Services</h1>
-                <p>Comprehensive construction solutions tailored to your needs</p>
+                <p>Comprehensive construction solutions tailored to your specific needs and requirements</p>
             </div>
         </div>
 
-        <div class="container" style="padding: 80px 0;">
+        <div class="container">
             <!-- Commercial Construction -->
             <div class="service-detail">
                 <div class="service-detail-img" style="background-image: url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80');"></div>
                 <div class="service-detail-content">
                     <h2>Commercial Construction</h2>
                     <p>At Spectrum Building Maintenance, we excel in commercial construction projects of all scales. Our team of experienced professionals works diligently to deliver spaces that are not only functional but also aesthetically pleasing and built to last. We understand the unique requirements of commercial projects, including timelines, budgets, and compliance with regulations.</p>
-                    <p>From initial planning to final execution, we maintain clear communication with our clients to ensure their vision is realized. Our commercial construction services include office buildings, retail spaces, warehouses, and more.</p>
+                    <p>From initial planning to final execution, we maintain clear communication with our clients to ensure their vision is realized. Our commercial construction services include office buildings, retail spaces, warehouses, and more, all completed with the highest standards of quality and craftsmanship.</p>
                     <a href="#contact" class="btn nav-link" data-page="contact">Request a Quote</a>
                 </div>
             </div>
@@ -676,7 +1139,7 @@
                 <div class="service-detail-content">
                     <h2>Residential Construction</h2>
                     <p>Your home is your sanctuary, and we treat it with the care and attention it deserves. Our residential construction services cover everything from custom home building to renovations and extensions. We use quality materials and employ skilled craftsmen to ensure every detail meets our high standards.</p>
-                    <p>We work closely with homeowners to understand their needs, preferences, and lifestyle, creating spaces that are both beautiful and functional. Our commitment to excellence has made us a trusted name in residential construction.</p>
+                    <p>We work closely with homeowners to understand their needs, preferences, and lifestyle, creating spaces that are both beautiful and functional. Our commitment to excellence has made us a trusted name in residential construction throughout South Africa.</p>
                     <a href="#contact" class="btn nav-link" data-page="contact">Discuss Your Project</a>
                 </div>
             </div>
@@ -686,8 +1149,8 @@
                 <div class="service-detail-img" style="background-image: url('https://sjzconstruction.com/wp-content/uploads/2023/01/mechanical-elactrical-and-plumbing-image.jpg');"></div>
                 <div class="service-detail-content">
                     <h2>Plumbing & Electrical</h2>
-                    <p>Our certified plumbers and electricians provide reliable and efficient services for both residential and commercial properties. We handle everything from installations and repairs to maintenance and upgrades.</p>
-                    <p>With a focus on safety, code compliance, and quality workmanship, we ensure that your plumbing and electrical systems function optimally. Our team stays updated with the latest technologies and techniques to deliver the best solutions for our clients.</p>
+                    <p>Our certified plumbers and electricians provide reliable and efficient services for both residential and commercial properties. We handle everything from installations and repairs to maintenance and upgrades, ensuring your systems function optimally and safely.</p>
+                    <p>With a focus on safety, code compliance, and quality workmanship, we ensure that your plumbing and electrical systems meet the highest standards. Our team stays updated with the latest technologies and techniques to deliver the best solutions for our clients.</p>
                     <a href="#contact" class="btn nav-link" data-page="contact">Schedule Service</a>
                 </div>
             </div>
@@ -698,7 +1161,7 @@
                 <div class="service-detail-content">
                     <h2>Roofing</h2>
                     <p>A well-constructed roof is essential for protecting your property. We offer comprehensive roofing services using durable, weather-resistant materials. Whether you need a new roof installation, repairs, or maintenance, our skilled roofers deliver quality workmanship that stands the test of time.</p>
-                    <p>We work with various roofing materials, including shingles, metal, tile, and flat roofing systems, providing solutions that suit your aesthetic preferences and budget.</p>
+                    <p>We work with various roofing materials, including shingles, metal, tile, and flat roofing systems, providing solutions that suit your aesthetic preferences, budget, and environmental conditions.</p>
                     <a href="#contact" class="btn nav-link" data-page="contact">Get Roofing Estimate</a>
                 </div>
             </div>
@@ -709,7 +1172,7 @@
                 <div class="service-detail-content">
                     <h2>Steel Works</h2>
                     <p>Our steel fabrication and installation services cater to commercial and industrial projects requiring structural integrity and durability. We work with precision to fabricate steel components that meet exact specifications and engineering requirements.</p>
-                    <p>From structural frames to custom steel elements, our team has the expertise to handle projects of varying complexity, ensuring strength, safety, and longevity.</p>
+                    <p>From structural frames to custom steel elements, our team has the expertise to handle projects of varying complexity, ensuring strength, safety, and longevity for your construction needs.</p>
                     <a href="#contact" class="btn nav-link" data-page="contact">Inquire About Steel Works</a>
                 </div>
             </div>
@@ -720,8 +1183,65 @@
                 <div class="service-detail-content">
                     <h2>Paving</h2>
                     <p>We provide professional paving services for driveways, walkways, parking lots, and other outdoor surfaces. Using high-quality materials and proven techniques, we create durable and visually appealing paved areas that enhance your property's functionality and curb appeal.</p>
-                    <p>Our paving solutions are designed to withstand heavy use and varying weather conditions, ensuring long-lasting performance and minimal maintenance. We offer both asphalt and concrete paving options to meet your specific needs and budget.</p>
+                    <p>Our paving solutions are designed to withstand heavy use and varying weather conditions, ensuring long-lasting performance and minimal maintenance. We offer both asphalt and concrete paving options to meet your specific needs and budget requirements.</p>
                     <a href="#contact" class="btn nav-link" data-page="contact">Get Paving Quote</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Page -->
+    <section id="testimonials" class="page-section">
+        <div class="service-hero">
+            <div class="container">
+                <h1>Client Testimonials</h1>
+                <p>Hear what our satisfied clients have to say about our work and service</p>
+            </div>
+        </div>
+
+        <div class="testimonials">
+            <div class="container">
+                <div class="section-title">
+                    <h2>What Our Clients Say</h2>
+                    <p>We take pride in delivering exceptional results and building lasting relationships with our clients.</p>
+                </div>
+                <div class="testimonial-grid">
+                    <div class="testimonial-card">
+                        <div class="testimonial-text">
+                            "Spectrum Building Maintenance transformed our outdated office space into a modern, functional workplace. Their attention to detail and commitment to quality was evident throughout the project."
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-avatar" style="background-image: url('https://randomuser.me/api/portraits/men/32.jpg'); background-size: cover;"></div>
+                            <div class="author-info">
+                                <h4>James Wilson</h4>
+                                <p>CEO, Wilson Enterprises</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-text">
+                            "The team at Spectrum built our dream home exactly as we envisioned. They were professional, communicative, and delivered on time and within budget. Highly recommended!"
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-avatar" style="background-image: url('https://randomuser.me/api/portraits/women/44.jpg'); background-size: cover;"></div>
+                            <div class="author-info">
+                                <h4>Sarah Johnson</h4>
+                                <p>Homeowner</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-text">
+                            "We've used Spectrum for multiple commercial projects over the years. Their reliability, expertise, and quality of work make them our go-to construction partner."
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-avatar" style="background-image: url('https://randomuser.me/api/portraits/men/67.jpg'); background-size: cover;"></div>
+                            <div class="author-info">
+                                <h4>Michael Brown</h4>
+                                <p>Property Developer</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -732,15 +1252,15 @@
         <div class="contact-hero">
             <div class="container">
                 <h1>Contact Us</h1>
-                <p>Get in touch with us to discuss your project needs</p>
+                <p>Get in touch with us to discuss your project needs and requirements</p>
             </div>
         </div>
 
-        <div class="container" style="padding: 80px 0;">
+        <div class="container">
             <div class="contact-grid">
                 <div>
                     <h2>Get In Touch</h2>
-                    <p>Have a project in mind? Fill out the form and our team will get back to you shortly.</p>
+                    <p>Have a project in mind? Fill out the form and our team will get back to you shortly to discuss your requirements.</p>
                     
                     <div class="contact-info">
                         <div class="contact-info-item">
@@ -772,20 +1292,55 @@
                                 <p>spectrum.ryan@gmail.com</p>
                             </div>
                         </div>
-                    </div> 
+                        
+                        <div class="contact-info-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div>
+                                <h3>Business Hours</h3>
+                                <p>Monday - Friday: 8:00 AM - 5:00 PM<br>Saturday: 9:00 AM - 1:00 PM</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 
                 <div>
-    <form class="contact-form" action="https://formspree.io/f/mrblnqgq" method="POST">
-        <input type="text" name="name" placeholder="Your Name" required>
-        <input type="email" name="email" placeholder="Your Email" required>
-        <input type="tel" name="phone" placeholder="Your Phone">
-        <input type="text" name="subject" placeholder="Subject">
-        <textarea name="message" placeholder="Your Message" required></textarea>
-        <button type="submit" class="btn">Send Message</button>
-    </form>
-</div>
-
+                    <form class="contact-form" id="contactForm" action="https://formspree.io/f/mrblnqgq" method="POST">
+                        <input type="text" name="name" placeholder="Your Name" required>
+                        <input type="email" name="email" placeholder="Your Email" required>
+                        <input type="tel" name="phone" placeholder="Your Phone">
+                        <select name="service" required>
+                            <option value="" disabled selected>Select Service</option>
+                            <option value="commercial">Commercial Construction</option>
+                            <option value="residential">Residential Construction</option>
+                            <option value="plumbing">Plumbing</option>
+                            <option value="electrical">Electrical</option>
+                            <option value="roofing">Roofing</option>
+                            <option value="steel">Steel Works</option>
+                            <option value="paving">Paving</option>
+                            <option value="other">Other</option>
+                        </select>
+                        <textarea name="message" placeholder="Your Message" required></textarea>
+                        <button type="submit" class="btn" id="submitBtn">
+                            <span class="btn-text">Send Message</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="map-container">
+                <div class="map" id="map">
+                    <!-- Map placeholder - you can integrate Google Maps here -->
+                    <div style="width: 100%; height: 100%; background-color: #f5f7fa; display: flex; align-items: center; justify-content: center;">
+                        <div style="text-align: center;">
+                            <i class="fas fa-map-marker-alt" style="font-size: 48px; color: var(--accent); margin-bottom: 15px;"></i>
+                            <p style="color: var(--primary-dark); font-weight: 600;">22 Richter Street, Trichardt, Mpumalanga, South Africa</p>
+                            <!--in progress
+                            <p style="color: #666; margin-top: 10px;"></p> -->
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -796,7 +1351,7 @@
             <div class="footer-content">
                 <div class="footer-section">
                     <h3>About Us</h3>
-                    <p>Spectrum Building Maintenance is a full-service construction company specializing in commercial and residential projects, plumbing, electrical, and more.</p>
+                    <p>Spectrum Building Maintenance is a full-service construction company with over 15 years of experience, specializing in commercial and residential projects, plumbing, electrical, and more throughout South Africa.</p>
                     <div class="social-icons">
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
                         <a href="#"><i class="fab fa-twitter"></i></a>
@@ -810,6 +1365,7 @@
                     <ul>
                         <li><a href="#home" class="nav-link" data-page="home">Home</a></li>
                         <li><a href="#services" class="nav-link" data-page="services">Services</a></li>
+                        <li><a href="#testimonials" class="nav-link" data-page="testimonials">Testimonials</a></li>
                         <li><a href="#contact" class="nav-link" data-page="contact">Contact</a></li>
                     </ul>
                 </div>
@@ -817,13 +1373,13 @@
                 <div class="footer-section">
                     <h3>Services</h3>
                     <ul>
-                        <li><a href="#">Commercial Construction</a></li>
-                        <li><a href="#">Residential Construction</a></li>
-                        <li><a href="#">Plumbing</a></li>
-                        <li><a href="#">Electrical</a></li>
-                        <li><a href="#">Roofing</a></li>
-                        <li><a href="#">Steel Works</a></li>
-                        <li><a href="#">Paving</a></li>
+                        <li><a href="#services" class="nav-link" data-page="services">Commercial Construction</a></li>
+                        <li><a href="#services" class="nav-link" data-page="services">Residential Construction</a></li>
+                        <li><a href="#services" class="nav-link" data-page="services">Plumbing</a></li>
+                        <li><a href="#services" class="nav-link" data-page="services">Electrical</a></li>
+                        <li><a href="#services" class="nav-link" data-page="services">Roofing</a></li>
+                        <li><a href="#services" class="nav-link" data-page="services">Steel Works</a></li>
+                        <li><a href="#services" class="nav-link" data-page="services">Paving</a></li>
                     </ul>
                 </div>
                 
@@ -832,6 +1388,7 @@
                     <p><i class="fas fa-map-marker-alt"></i> 22 Richter Street, Trichardt, Mpumalanga, South Africa</p>
                     <p><i class="fas fa-phone"></i> +27 79 610 7711</p>
                     <p><i class="fas fa-envelope"></i> spectrum.ryan@gmail.com</p>
+                    <p><i class="fas fa-clock"></i> Mon-Fri: 8:00 AM - 5:00 PM</p>
                 </div>
             </div>
             
@@ -847,10 +1404,17 @@
         const navMenu = document.getElementById('navMenu');
         const navLinks = document.querySelectorAll('.nav-link');
         const pageSections = document.querySelectorAll('.page-section');
+        const backToTop = document.getElementById('backToTop');
+        const header = document.getElementById('mainHeader');
+        const contactForm = document.getElementById('contactForm');
+        const submitBtn = document.getElementById('submitBtn');
+        const btnText = submitBtn ? submitBtn.querySelector('.btn-text') : null;
         
         // Mobile menu toggle
         navToggle.addEventListener('click', () => {
             navMenu.classList.toggle('active');
+            navToggle.innerHTML = navMenu.classList.contains('active') ? 
+                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
         });
         
         // Page navigation
@@ -871,39 +1435,142 @@
                 
                 // Close mobile menu if open
                 navMenu.classList.remove('active');
+                navToggle.innerHTML = '<i class="fas fa-bars"></i>';
                 
                 // Scroll to top
                 window.scrollTo(0, 0);
             });
         });
         
-        // Form submission
-        // Form submission with Formspree
-const contactForm = document.querySelector('.contact-form');
-if (contactForm) {
-    contactForm.addEventListener("submit", async function (e) {
-        e.preventDefault();
-
-        const formData = new FormData(contactForm);
-        try {
-            const response = await fetch(contactForm.action, {
-                method: contactForm.method,
-                body: formData,
-                headers: { 'Accept': 'application/json' }
-            });
-
-            if (response.ok) {
-                alert("✅ Thank you for your message! We will get back to you soon.");
-                contactForm.reset();
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
             } else {
-                alert("⚠️ Oops! Something went wrong. Please try again.");
+                header.classList.remove('scrolled');
             }
-        } catch (error) {
-            alert("❌ Network error. Please check your connection and try again.");
+            
+            // Back to top button visibility
+            if (window.scrollY > 300) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+        
+        // Back to top functionality
+        backToTop.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Animate stats counter
+        function animateStats() {
+            const statNumbers = document.querySelectorAll('.stat-number');
+            
+            statNumbers.forEach(stat => {
+                const target = parseInt(stat.getAttribute('data-count'));
+                const duration = 2000; // 2 seconds
+                const step = target / (duration / 16); // 60fps
+                let current = 0;
+                
+                const timer = setInterval(() => {
+                    current += step;
+                    if (current >= target) {
+                        current = target;
+                        clearInterval(timer);
+                    }
+                    stat.textContent = Math.floor(current);
+                }, 16);
+            });
         }
-    });
-}
-
+        
+        // Check if stats section is in viewport
+        function isElementInViewport(el) {
+            const rect = el.getBoundingClientRect();
+            return (
+                rect.top >= 0 &&
+                rect.left >= 0 &&
+                rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+            );
+        }
+        
+        // Check if stats should be animated
+        function checkStatsAnimation() {
+            const statsSection = document.querySelector('.stats');
+            if (statsSection && isElementInViewport(statsSection)) {
+                animateStats();
+                window.removeEventListener('scroll', checkStatsAnimation);
+            }
+        }
+        
+        // Initialize stats animation check
+        window.addEventListener('scroll', checkStatsAnimation);
+        checkStatsAnimation(); // Check on page load
+        
+        // Form submission
+        if (contactForm) {
+            contactForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                
+                // Show loading state
+                if (btnText) {
+                    btnText.textContent = 'Sending...';
+                    submitBtn.disabled = true;
+                }
+                
+                try {
+                    const formData = new FormData(contactForm);
+                    const response = await fetch(contactForm.action, {
+                        method: 'POST',
+                        body: formData,
+                        headers: {
+                            'Accept': 'application/json'
+                        }
+                    });
+                    
+                    if (response.ok) {
+                        // Success message
+                        alert('Thank you for your message! We will get back to you soon.');
+                        contactForm.reset();
+                    } else {
+                        // Error message
+                        alert('Oops! Something went wrong. Please try again.');
+                    }
+                } catch (error) {
+                    // Network error
+                    alert('Network error. Please check your connection and try again.');
+                } finally {
+                    // Reset button state
+                    if (btnText) {
+                        btnText.textContent = 'Send Message';
+                        submitBtn.disabled = false;
+                    }
+                }
+            });
+        }
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
     </script>
 </body>
 </html>
